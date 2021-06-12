@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        {% for post_and_id in posts.items %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ post_and_id.1.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post_and_id.1.author }}</a>
+              <small class="text-muted">{{ post_and_id.1.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'post-detail' post_and_id.1.id %}">{{ post_and_id.1.title }}</a></h2>
+            <p class="article-content">{{ post_and_id.1.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+        <script src="" async defer></script>
+    </body>
+</html>
+
